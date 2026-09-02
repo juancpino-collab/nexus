@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Oficina Estratégica de Proyectos | NEXUS GSS</title>
+<meta name="description" content="Capacidad permanente de formulación y gestión de proyectos para organizaciones y entidades que quieren convertir sus iniciativas en proyectos financiables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F5F8FA;color:#0D1B2A;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#00607A;text-decoration:none}
+a:hover{color:#3C8A1A}
+#mainNav[data-scrolled="1"]{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+#mainNav[data-scrolled="1"] a,#mainNav[data-scrolled="1"] button{color:#003C5A!important}
+#navMenu a{color:#fff;transition:color .25s ease,background-color .25s ease;padding:.35rem .6rem;border-radius:3px}
+#navMenu a:hover{color:#003C5A!important;background:#fff}
+#mainNav[data-scrolled="1"] #navMenu a{color:#003C5A!important;background:transparent}
+#mainNav[data-scrolled="1"] #navMenu a:hover{color:#fff!important;background:#003C5A}
+#mainNav[data-scrolled="1"] #navBurger span{background:#0D1B2A}
+#mainNav[data-scrolled="1"] #navWordmark{color:#003C5A!important}
+:focus-visible{outline:3px solid #5AB41E;outline-offset:3px}
+@media(max-width:900px){#navMenu{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#003C5A;padding:1.75rem 1.5rem;gap:1.25rem}#navMenu[data-open="1"]{display:flex}#navMenu a,#navMenu button{color:#fff!important}}
+@media(min-width:901px){#navBurger{display:none!important}}
+@keyframes nxRing{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes nxPulse{0%,100%{border-color:rgba(90,180,30,.3);background:#0A4C6B}50%{border-color:rgba(90,180,30,.85);background:#0D5A7D}}
+@keyframes nxBreath{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes nxSpoke{0%,100%{opacity:.18}50%{opacity:.7}}
+@keyframes nxFade{0%,100%{opacity:.45}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){#nxDiagram *{animation:none!important}}
+</style>
+</helmet>
+
+<nav id="mainNav" data-scrolled="0" style="position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s ease,box-shadow .35s ease">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem">
+    <a href="./Nexus-Inicio.dc.html" style="display:flex;align-items:center;gap:.7rem;color:#fff">
+      <img src="./assets/nexus-emblem.png" alt="NEXUS GSS" style="height:42px;width:auto;display:block;flex:none">
+      <span id="navWordmark" style="font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.06em;font-size:15px;color:#fff;transition:color .35s ease">NEXUS GSS</span>
+    </a>
+    <ul id="navMenu" data-open="0" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:clamp(1rem,2.2vw,2rem);font-family:Montserrat,sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.05em">
+      <li><a href="./Nexus-Inicio.dc.html#servicios" data-i18n="nav.services" style="color:inherit">Qué hacemos</a></li>
+      <li><a href="./Nexus-Oficina-Estrategica.dc.html" data-i18n="nav.office" style="color:inherit;padding-bottom:.35rem;border-bottom:2px solid #5AB41E">Oficina Estratégica</a></li>
+      <li><a href="./Nexus-Areas.dc.html" data-i18n="nav.areas" style="color:inherit">Áreas</a></li>
+      <li><a href="./Nexus-Inicio.dc.html#equipo" data-i18n="nav.team" style="color:inherit">Equipo</a></li>
+      <li><a href="./Nexus-Contacto.dc.html" data-i18n="nav.contact" style="color:inherit">Contacto</a></li>
+      <li>
+        <button onClick="{{ toggleLang }}" aria-live="polite" style="background:none;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.4rem .8rem;font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;color:inherit;cursor:pointer;display:flex;gap:.35rem">
+          <span id="langES" style="font-weight:700">ES</span><span style="opacity:.5">/</span><span id="langEN" style="font-weight:400;opacity:.55">EN</span>
+        </button>
+      </li>
+    </ul>
+    <button id="navBurger" aria-label="Menú" aria-expanded="false" onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:0">
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<section data-screen-label="Hero Oficina" style="position:relative;background:#003C5A;padding:clamp(9rem,18vh,13rem) 0 clamp(4rem,8vw,6rem);overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 64px)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 1.75rem;font-family:Montserrat,sans-serif;font-weight:600"><a href="./Nexus-Inicio.dc.html" data-i18n="bc.home" style="color:rgba(255,255,255,.55)" style-hover="color:#5AB41E">Inicio</a> / <span data-i18n="bc.office">Oficina Estratégica</span></p>
+    <h1 data-i18n="off.h1" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(2rem,4.6vw,3.75rem);line-height:1.08;color:#fff;margin:0 0 1.75rem;max-width:24ch;text-wrap:balance">Capacidad permanente para desarrollar proyectos sin ampliar su estructura.</h1>
+    <p data-i18n="off.lead" style="font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.65;color:rgba(255,255,255,.85);max-width:64ch;margin:0;text-wrap:pretty">La Oficina Estratégica de Proyectos NEXUS acompaña a organizaciones y entidades en la identificación, priorización, estructuración y búsqueda de financiación para sus iniciativas.</p>
+  </div>
+</section>
+
+<section data-screen-label="Qué es" style="background:#fff;padding:clamp(4rem,9vw,6.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2.5rem,6vw,4rem)">
+    <div>
+      <span data-i18n="off.what.tag" style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3C8A1A;margin-bottom:1rem">Qué es</span>
+      <h2 data-i18n="off.what.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;margin:0 0 1.5rem;color:#0D1B2A;text-wrap:balance">Una unidad externa de proyectos que funciona como parte de su organización</h2>
+    </div>
+    <div>
+      <p data-i18n="off.what.p1" style="font-size:1.0625rem;line-height:1.75;color:#374151;margin:0 0 1.25rem;text-wrap:pretty">Muchas organizaciones tienen más ideas que capacidad para convertirlas en proyectos. La Oficina Estratégica de Proyectos aporta un equipo permanente de formulación, estructuración y financiación que opera de forma articulada con sus equipos técnicos y directivos, sin necesidad de ampliar la planta ni crear nuevas dependencias.</p>
+      <p data-i18n="off.what.p2" style="font-size:1.0625rem;line-height:1.75;color:#374151;margin:0 0 1.25rem;text-wrap:pretty">El acompañamiento cubre el ciclo completo: identificación de iniciativas, evaluación de madurez, priorización, estructuración técnica y financiera, identificación de fuentes de recursos y presentación ante financiadores.</p>
+      <p data-i18n="off.what.p3" style="font-size:1.0625rem;line-height:1.75;color:#374151;margin:0;text-wrap:pretty">El resultado es una cartera viva: ordenada, priorizada, documentada y lista para gestionarse ante cooperación internacional, fondos climáticos, inversión pública o inversión privada.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Sistema" style="background:#003C5A;padding:clamp(3.5rem,8vw,5.5rem) 0;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2.5rem,6vw,4rem);align-items:center">
+    <div>
+      <span data-i18n="off.sys.tag" style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5AB41E;margin-bottom:1rem">Cómo opera</span>
+      <h2 data-i18n="off.sys.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.625rem,3vw,2.25rem);line-height:1.15;margin:0 0 1.25rem;color:#fff;text-wrap:balance">Un sistema, no una suma de servicios</h2>
+      <p data-i18n="off.sys.p" style="font-size:1.0625rem;line-height:1.75;color:rgba(255,255,255,.82);margin:0;max-width:52ch;text-wrap:pretty">Territorio, ecosistemas, comunidades, cooperación y proyectos se leen como un solo circuito. La Oficina Estratégica es el punto donde esas dimensiones se articulan y se traducen en decisiones financiables.</p>
+    </div>
+    <div id="nxDiagram" aria-hidden="true" style="position:relative;width:100%;max-width:420px;aspect-ratio:1/1;margin:0 auto;justify-self:center">
+      <div style="position:absolute;top:50%;left:50%;width:88%;height:88%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(90,180,30,.22);animation:nxRing 26s linear infinite"></div>
+      <div style="position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(255,255,255,.14);animation:nxRing 40s linear infinite reverse"></div>
+
+      <div style="position:absolute;top:50%;left:50%;width:36%;height:1px;transform-origin:0 0;transform:rotate(-90deg);background:linear-gradient(to right,rgba(90,180,30,.65),transparent);animation:nxSpoke 4s ease-in-out infinite"></div>
+      <div style="position:absolute;top:50%;left:50%;width:36%;height:1px;transform-origin:0 0;transform:rotate(-18deg);background:linear-gradient(to right,rgba(90,180,30,.65),transparent);animation:nxSpoke 4s ease-in-out infinite .8s"></div>
+      <div style="position:absolute;top:50%;left:50%;width:36%;height:1px;transform-origin:0 0;transform:rotate(54deg);background:linear-gradient(to right,rgba(90,180,30,.65),transparent);animation:nxSpoke 4s ease-in-out infinite 1.6s"></div>
+      <div style="position:absolute;top:50%;left:50%;width:36%;height:1px;transform-origin:0 0;transform:rotate(126deg);background:linear-gradient(to right,rgba(90,180,30,.65),transparent);animation:nxSpoke 4s ease-in-out infinite 2.4s"></div>
+      <div style="position:absolute;top:50%;left:50%;width:36%;height:1px;transform-origin:0 0;transform:rotate(198deg);background:linear-gradient(to right,rgba(90,180,30,.65),transparent);animation:nxSpoke 4s ease-in-out infinite 3.2s"></div>
+
+      <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:23%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(90,180,30,.4);background:#0A4C6B;display:flex;align-items:center;justify-content:center;text-align:center;padding:.4rem;animation:nxPulse 4s ease-in-out infinite"><span data-i18n="off.sys.n1" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff">Territorio</span></div>
+      <div style="position:absolute;top:27%;right:0;width:23%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(90,180,30,.4);background:#0A4C6B;display:flex;align-items:center;justify-content:center;text-align:center;padding:.4rem;animation:nxPulse 4s ease-in-out infinite .8s"><span data-i18n="off.sys.n2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff">Ecosistemas</span></div>
+      <div style="position:absolute;bottom:6%;right:10%;width:23%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(90,180,30,.4);background:#0A4C6B;display:flex;align-items:center;justify-content:center;text-align:center;padding:.4rem;animation:nxPulse 4s ease-in-out infinite 1.6s"><span data-i18n="off.sys.n3" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff">Comunidades</span></div>
+      <div style="position:absolute;bottom:6%;left:10%;width:23%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(90,180,30,.4);background:#0A4C6B;display:flex;align-items:center;justify-content:center;text-align:center;padding:.4rem;animation:nxPulse 4s ease-in-out infinite 2.4s"><span data-i18n="off.sys.n4" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff">Cooperación</span></div>
+      <div style="position:absolute;top:27%;left:0;width:23%;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(90,180,30,.4);background:#0A4C6B;display:flex;align-items:center;justify-content:center;text-align:center;padding:.4rem;animation:nxPulse 4s ease-in-out infinite 3.2s"><span data-i18n="off.sys.n5" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#fff">Proyectos</span></div>
+
+      <div style="position:absolute;top:50%;left:50%;width:26%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;background:#5AB41E;display:flex;align-items:center;justify-content:center;animation:nxBreath 3.5s ease-in-out infinite;box-shadow:0 0 0 8px rgba(90,180,30,.12)">
+        <img src="./assets/nexus-emblem.png" alt="" style="width:58%;height:auto;display:block;filter:brightness(0) invert(1)">
+      </div>
+    </div>
+  </div>
+  <p data-i18n="off.sys.tagline" style="text-align:center;margin:clamp(2rem,4vw,3rem) 0 0;font-family:Montserrat,sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(90,180,30,.9);animation:nxFade 6s ease-in-out infinite">Gobernanza · Sostenibilidad · Territorio</p>
+</section>
+
+<section data-screen-label="Flujo" style="background:#F5F8FA;padding:clamp(4rem,9vw,6.5rem) 0">
+  <div style="max-width:1000px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <h2 data-i18n="off.flow.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;margin:0 0 clamp(2.5rem,5vw,3.5rem);color:#0D1B2A;max-width:24ch;text-wrap:balance">De ideas dispersas a una cartera gestionable</h2>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#003C5A;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">01</span><span aria-hidden="true" style="width:1px;flex:1;min-height:36px;background:#E5E7EB;margin:.5rem 0"></span></div>
+        <div style="padding-bottom:2rem"><h3 data-i18n="off.f1.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Ideas y necesidades</h3><p data-i18n="off.f1.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Inventario de iniciativas existentes, demandas del territorio y compromisos institucionales.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#5AB41E;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">02</span><span aria-hidden="true" style="width:1px;flex:1;min-height:36px;background:#E5E7EB;margin:.5rem 0"></span></div>
+        <div style="padding-bottom:2rem"><h3 data-i18n="off.f2.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Evaluación y priorización</h3><p data-i18n="off.f2.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Madurez, viabilidad, impacto y potencial de financiación de cada iniciativa.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#003C5A;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">03</span><span aria-hidden="true" style="width:1px;flex:1;min-height:36px;background:#E5E7EB;margin:.5rem 0"></span></div>
+        <div style="padding-bottom:2rem"><h3 data-i18n="off.f3.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Estructuración</h3><p data-i18n="off.f3.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Diseño técnico, marco lógico, indicadores, presupuesto y soporte espacial.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#5AB41E;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">04</span><span aria-hidden="true" style="width:1px;flex:1;min-height:36px;background:#E5E7EB;margin:.5rem 0"></span></div>
+        <div style="padding-bottom:2rem"><h3 data-i18n="off.f4.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Cartera de proyectos</h3><p data-i18n="off.f4.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Un pipeline documentado, priorizado y actualizable en el tiempo.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#003C5A;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">05</span><span aria-hidden="true" style="width:1px;flex:1;min-height:36px;background:#E5E7EB;margin:.5rem 0"></span></div>
+        <div style="padding-bottom:2rem"><h3 data-i18n="off.f5.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Oportunidades de financiación</h3><p data-i18n="off.f5.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Compatibilidad con fuentes, requisitos y ruta de acceso a recursos.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start">
+        <div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:999px;background:#5AB41E;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none">06</span></div>
+        <div><h3 data-i18n="off.f6.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.1875rem;margin:.5rem 0 .5rem;color:#003C5A">Presentación y seguimiento</h3><p data-i18n="off.f6.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0">Postulación, interlocución con financiadores y acompañamiento a la implementación.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Por qué NEXUS" style="background:#fff;padding:clamp(4rem,9vw,6.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <h2 data-i18n="off.why.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;margin:0 0 clamp(2.5rem,5vw,3.5rem);color:#0D1B2A">Por qué NEXUS</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem">
+      <article style="border:1px solid #E5E7EB;padding:2rem 1.75rem;background:#fff;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,60,90,.09)">
+        <h3 data-i18n="off.w1.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 .85rem;color:#003C5A">Capacidad sin estructura fija</h3>
+        <p data-i18n="off.w1.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0;text-wrap:pretty">Un equipo multidisciplinario que se activa según el desafío, sin costos permanentes de nómina.</p>
+      </article>
+      <article style="border:1px solid #E5E7EB;padding:2rem 1.75rem;background:#fff;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,60,90,.09)">
+        <h3 data-i18n="off.w2.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 .85rem;color:#003C5A">Del territorio a la financiación</h3>
+        <p data-i18n="off.w2.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0;text-wrap:pretty">Conocimiento técnico territorial y experiencia en fuentes públicas, climáticas y de cooperación en un mismo equipo.</p>
+      </article>
+      <article style="border:1px solid #E5E7EB;padding:2rem 1.75rem;background:#fff;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,60,90,.09)">
+        <h3 data-i18n="off.w3.title" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 .85rem;color:#003C5A">Trazabilidad y aprendizaje</h3>
+        <p data-i18n="off.w3.desc" style="font-size:.9375rem;line-height:1.7;color:#374151;margin:0;text-wrap:pretty">Cada proyecto deja documentación, datos e información reutilizable para las decisiones siguientes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="background:#5AB41E;padding:clamp(3.5rem,7vw,5rem) 0">
+  <div style="max-width:1000px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);text-align:center">
+    <h2 data-i18n="off.cta.title" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.375rem);line-height:1.2;color:#fff;margin:0 0 2rem;text-wrap:balance">Su organización conserva las decisiones. NEXUS aporta la capacidad para convertirlas en proyectos.</h2>
+    <a href="./Nexus-Contacto.dc.html#tipo=cartera" data-i18n="off.cta.btn" style="display:inline-block;background:#fff;color:#003C5A;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;padding:1.05rem 2rem;border-radius:4px;transition:transform .25s,box-shadow .25s" style-hover="color:#003C5A;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.16)">Conversemos sobre su cartera →</a>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:#002840;padding:clamp(3.5rem,7vw,5rem) 0 2rem">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.5rem">
+      <div>
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.25rem">
+          <img src="./assets/nexus-emblem.png" alt="NEXUS GSS" style="height:38px;width:auto;display:block">
+          <span style="font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.06em;font-size:15px;color:#fff">NEXUS GSS</span>
+        </div>
+        <p data-i18n="footer.tagline" style="font-size:.9375rem;line-height:1.7;color:rgba(255,255,255,.7);margin:0 0 1.25rem;max-width:34ch">Transformamos desafíos territoriales en soluciones que pueden hacerse realidad.</p>
+        <a href="https://www.linkedin.com/in/nexus-gss-governance-and-sustainability-solutions-a768623a8" target="_blank" rel="noopener" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;color:#5AB41E;letter-spacing:.04em" style-hover="color:#fff">LinkedIn ↗</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer.nav.title" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 1.25rem">Navegación</h4>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem;font-size:.9375rem">
+          <li><a href="./Nexus-Inicio.dc.html#servicios" data-i18n="nav.services" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Qué hacemos</a></li>
+          <li><a href="./Nexus-Oficina-Estrategica.dc.html" data-i18n="nav.office" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Oficina Estratégica</a></li>
+          <li><a href="./Nexus-Areas.dc.html" data-i18n="nav.areas" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Áreas</a></li>
+          <li><a href="./Nexus-Inicio.dc.html#equipo" data-i18n="nav.team" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Equipo</a></li>
+          <li><a href="./Nexus-Contacto.dc.html" data-i18n="nav.contact" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact.title" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 1.25rem">Contacto</h4>
+        <p style="margin:0 0 .75rem;font-size:.9375rem"><a href="mailto:info@nexusgss.co" style="color:#5AB41E" style-hover="color:#fff">info@nexusgss.co</a></p>
+        <p data-i18n="footer.location" style="font-size:.9375rem;color:rgba(255,255,255,.7);margin:0">Caribe colombiano · Colombia</p>
+      </div>
+    </div>
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between">
+      <p style="font-size:.8125rem;color:#9CA3AF;margin:0">© 2026 NEXUS GSS — Governance and Sustainable Solutions.</p>
+      <p data-i18n="footer.rights" style="font-size:.8125rem;color:#9CA3AF;margin:0">Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+<div style="font-size: 16px; line-height: 1; font-family: Inter, system-ui, sans-serif; position: absolute; left: 131px; top: 4px">Your text here</div></x-dc>
+<script type="text/x-dc" data-dc-script>
+const EN = {
+  "nav.services":"What we do","nav.office":"Strategic Office","nav.areas":"Areas","nav.team":"Team","nav.contact":"Contact",
+  "bc.home":"Home","bc.office":"Strategic Office",
+  "off.h1":"Permanent capacity to develop projects without expanding your structure.",
+  "off.lead":"The NEXUS Strategic Project Office accompanies organizations and entities in identifying, prioritizing, structuring, and securing financing for their initiatives.",
+  "off.what.tag":"What it is",
+  "off.what.title":"An external project unit that works as part of your organization",
+  "off.what.p1":"Many organizations have more ideas than capacity to turn them into projects. The Strategic Project Office brings a permanent formulation, structuring, and financing team that works alongside your technical and executive staff, with no need to expand headcount or create new units.",
+  "off.what.p2":"The support covers the full cycle: identifying initiatives, assessing maturity, prioritizing, technical and financial structuring, identifying funding sources, and presenting to funders.",
+  "off.what.p3":"The result is a living portfolio: organized, prioritized, documented, and ready to be pursued with international cooperation, climate funds, public investment, or private capital.",
+  "off.sys.tag":"How it works",
+  "off.sys.title":"A system, not a set of services",
+  "off.sys.p":"Territory, ecosystems, communities, cooperation, and projects are read as a single circuit. The Strategic Office is where those dimensions connect and turn into financeable decisions.",
+  "off.sys.n1":"Territory","off.sys.n2":"Ecosystems","off.sys.n3":"Communities","off.sys.n4":"Cooperation","off.sys.n5":"Projects",
+  "off.sys.tagline":"Governance · Sustainability · Territory",
+  "off.flow.title":"From scattered ideas to a manageable portfolio",
+  "off.f1.title":"Ideas and needs","off.f1.desc":"Inventory of existing initiatives, territorial demands, and institutional commitments.",
+  "off.f2.title":"Assessment and prioritization","off.f2.desc":"Maturity, feasibility, impact, and financing potential of each initiative.",
+  "off.f3.title":"Structuring","off.f3.desc":"Technical design, logical framework, indicators, budget, and spatial support.",
+  "off.f4.title":"Project portfolio","off.f4.desc":"A documented, prioritized pipeline that can be updated over time.",
+  "off.f5.title":"Financing opportunities","off.f5.desc":"Compatibility with sources, requirements, and the route to access resources.",
+  "off.f6.title":"Submission and follow-up","off.f6.desc":"Applications, dialogue with funders, and support through implementation.",
+  "off.why.title":"Why NEXUS",
+  "off.w1.title":"Capacity without fixed structure","off.w1.desc":"A multidisciplinary team activated according to the challenge, with no permanent payroll costs.",
+  "off.w2.title":"From territory to financing","off.w2.desc":"Territorial technical knowledge and experience with public, climate, and cooperation funding in a single team.",
+  "off.w3.title":"Traceability and learning","off.w3.desc":"Every project leaves documentation, data, and information reusable for future decisions.",
+  "off.cta.title":"Your organization keeps the decisions. NEXUS brings the capacity to turn them into projects.",
+  "off.cta.btn":"Let's talk about your portfolio →",
+  "footer.tagline":"We transform territorial challenges into solutions that can become reality.",
+  "footer.nav.title":"Navigation","footer.contact.title":"Contact","footer.location":"Colombian Caribbean · Colombia",
+  "footer.rights":"All rights reserved."
+};
+
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onScroll = () => {
+      const nav = document.getElementById('mainNav');
+      if (nav) nav.setAttribute('data-scrolled', window.scrollY > 80 ? '1' : '0');
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    let saved = 'es';
+    try { saved = localStorage.getItem('nexus-lang') || 'es'; } catch (e) {}
+    this.applyLang(saved);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  applyLang(lang) {
+    this.lang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (!el.dataset.esText) el.dataset.esText = el.textContent;
+      const val = lang === 'en' ? EN[key] : el.dataset.esText;
+      if (typeof val === 'string') el.textContent = val;
+    });
+    const es = document.getElementById('langES'), en = document.getElementById('langEN');
+    if (es && en) {
+      es.style.fontWeight = lang === 'es' ? '700' : '400';
+      es.style.opacity = lang === 'es' ? '1' : '.55';
+      en.style.fontWeight = lang === 'en' ? '700' : '400';
+      en.style.opacity = lang === 'en' ? '1' : '.55';
+    }
+    try { localStorage.setItem('nexus-lang', lang); } catch (e) {}
+  }
+
+  renderVals() {
+    return {
+      toggleLang: () => this.applyLang(this.lang === 'en' ? 'es' : 'en'),
+      toggleMenu: () => {
+        const menu = document.getElementById('navMenu');
+        const burger = document.getElementById('navBurger');
+        if (!menu) return;
+        const open = menu.getAttribute('data-open') === '1' ? '0' : '1';
+        menu.setAttribute('data-open', open);
+        if (burger) burger.setAttribute('aria-expanded', open === '1' ? 'true' : 'false');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

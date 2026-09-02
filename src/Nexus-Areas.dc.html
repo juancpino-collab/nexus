@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Áreas de trabajo | NEXUS GSS</title>
+<meta name="description" content="Agua y cuencas, mares y costas, biodiversidad, cambio climático, desarrollo territorial, gobernanza y más. Las áreas temáticas de NEXUS GSS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F5F8FA;color:#0D1B2A;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#00607A;text-decoration:none}
+a:hover{color:#3C8A1A}
+#mainNav[data-scrolled="1"]{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+#mainNav[data-scrolled="1"] a,#mainNav[data-scrolled="1"] button{color:#003C5A!important}
+#navMenu a{color:#fff;transition:color .25s ease,background-color .25s ease;padding:.35rem .6rem;border-radius:3px}
+#navMenu a:hover{color:#003C5A!important;background:#fff}
+#mainNav[data-scrolled="1"] #navMenu a{color:#003C5A!important;background:transparent}
+#mainNav[data-scrolled="1"] #navMenu a:hover{color:#fff!important;background:#003C5A}
+#mainNav[data-scrolled="1"] #navBurger span{background:#0D1B2A}
+#mainNav[data-scrolled="1"] #navWordmark{color:#003C5A!important}
+:focus-visible{outline:3px solid #5AB41E;outline-offset:3px}
+@media(max-width:900px){#navMenu{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#003C5A;padding:1.75rem 1.5rem;gap:1.25rem}#navMenu[data-open="1"]{display:flex}#navMenu a,#navMenu button{color:#fff!important}}
+@media(min-width:901px){#navBurger{display:none!important}}
+</style>
+</helmet>
+
+<nav id="mainNav" data-scrolled="0" style="position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s ease,box-shadow .35s ease">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem">
+    <a href="./Nexus-Inicio.dc.html" style="display:flex;align-items:center;gap:.7rem;color:#fff">
+      <img src="./assets/nexus-emblem.png" alt="NEXUS GSS" style="height:42px;width:auto;display:block;flex:none">
+      <span id="navWordmark" style="font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.06em;font-size:15px;color:#fff;transition:color .35s ease">NEXUS GSS</span>
+    </a>
+    <ul id="navMenu" data-open="0" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:clamp(1rem,2.2vw,2rem);font-family:Montserrat,sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.05em">
+      <li><a href="./Nexus-Inicio.dc.html#servicios" data-i18n="nav.services" style="color:inherit">Qué hacemos</a></li>
+      <li><a href="./Nexus-Oficina-Estrategica.dc.html" data-i18n="nav.office" style="color:inherit">Oficina Estratégica</a></li>
+      <li><a href="./Nexus-Areas.dc.html" data-i18n="nav.areas" style="color:inherit;padding-bottom:.35rem;border-bottom:2px solid #5AB41E">Áreas</a></li>
+      <li><a href="./Nexus-Inicio.dc.html#equipo" data-i18n="nav.team" style="color:inherit">Equipo</a></li>
+      <li><a href="./Nexus-Contacto.dc.html" data-i18n="nav.contact" style="color:inherit">Contacto</a></li>
+      <li>
+        <button onClick="{{ toggleLang }}" aria-live="polite" style="background:none;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.4rem .8rem;font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;color:inherit;cursor:pointer;display:flex;gap:.35rem">
+          <span id="langES" style="font-weight:700">ES</span><span style="opacity:.5">/</span><span id="langEN" style="font-weight:400;opacity:.55">EN</span>
+        </button>
+      </li>
+    </ul>
+    <button id="navBurger" aria-label="Menú" aria-expanded="false" onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:0">
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+      <span style="display:block;width:24px;height:2px;background:#fff;transition:background .35s"></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<section data-screen-label="Hero Áreas" style="position:relative;background:#003C5A;padding:clamp(9rem,18vh,13rem) 0 clamp(4rem,8vw,6rem);overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 64px)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 1.75rem;font-family:Montserrat,sans-serif;font-weight:600"><a href="./Nexus-Inicio.dc.html" data-i18n="bc.home" style="color:rgba(255,255,255,.55)" style-hover="color:#5AB41E">Inicio</a> / <span data-i18n="bc.areas">Áreas</span></p>
+    <h1 data-i18n="ar.h1" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(2rem,4.6vw,3.75rem);line-height:1.08;color:#fff;margin:0 0 1.75rem;max-width:22ch;text-wrap:balance">Las áreas en las que trabajamos</h1>
+    <p data-i18n="ar.lead" style="font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.65;color:rgba(255,255,255,.85);max-width:64ch;margin:0;text-wrap:pretty">NEXUS opera en la intersección de los principales desafíos ambientales y de desarrollo de Colombia y América Latina.</p>
+  </div>
+</section>
+
+<section data-screen-label="Grid áreas" style="background:#fff;padding:clamp(4rem,9vw,6rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem">
+    <a href="#agua" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-1" shape="rect" placeholder="Cuenca hidrográfica (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">01</span><span data-i18n="ar.a1.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Agua y cuencas</span></span>
+    </a>
+    <a href="#mares" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-2" shape="rect" placeholder="Costa y mar Caribe (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">02</span><span data-i18n="ar.a2.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Mares y costas</span></span>
+    </a>
+    <a href="#biodiversidad" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-3" shape="rect" placeholder="Bosque tropical o manglar (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">03</span><span data-i18n="ar.a3.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Biodiversidad y ecosistemas</span></span>
+    </a>
+    <a href="#clima" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-4" shape="rect" placeholder="Evidencia de clima extremo o erosión costera (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">04</span><span data-i18n="ar.a4.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Cambio climático y riesgo</span></span>
+    </a>
+    <a href="#territorial" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-5" shape="rect" placeholder="Paisaje productivo rural (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">05</span><span data-i18n="ar.a5.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Desarrollo territorial y bioeconomía</span></span>
+    </a>
+    <a href="#gobernanza" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-6" shape="rect" placeholder="Reunión institucional o comunitaria (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">06</span><span data-i18n="ar.a6.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Gobernanza y fortalecimiento institucional</span></span>
+    </a>
+    <a href="#educacion" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-7" shape="rect" placeholder="Taller o formación en campo (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">07</span><span data-i18n="ar.a7.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Educación e innovación</span></span>
+    </a>
+    <a href="#comunitario" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff">
+      <image-slot id="ar-8" shape="rect" placeholder="Comunidad costera o rural (4:3)"></image-slot>
+      <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,60,90,.85) 0%,rgba(0,60,90,.35) 100%);pointer-events:none"></span>
+      <span style="position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;pointer-events:none"><span style="display:block;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#5AB41E">08</span><span data-i18n="ar.a8.title" style="display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:1.125rem;line-height:1.3;color:#fff">Desarrollo comunitario</span></span>
+    </a>
+  </div>
+</section>
+
+<section id="agua" data-screen-label="Agua y cuencas" style="background:#F5F8FA;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">01</span>
+      <h2 data-i18n="ar.a1.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Agua y cuencas</h2>
+      <p data-i18n="ar.a1.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Trabajamos la gestión integral del recurso hídrico desde la escala de cuenca: oferta y demanda, calidad del agua, regulación hídrica, saneamiento, restauración de rondas y áreas de recarga, y esquemas de pago por servicios ambientales. Integramos información hidrológica y espacial con arreglos institucionales y comunitarios para que las intervenciones sean sostenibles más allá del proyecto.</p>
+      <ul data-i18n-list="ar.a1.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">POMCA</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">calidad del agua</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">PSA</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">restauración de rondas</li>
+      </ul>
+    </div>
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d1" shape="rounded" radius="12" placeholder="Cuenca o río del Caribe colombiano (4:3)"></image-slot></div>
+  </div>
+</section>
+
+<section id="mares" data-screen-label="Mares y costas" style="background:#fff;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d2" shape="rounded" radius="12" placeholder="Zona costera, playa o bahía (4:3)"></image-slot></div>
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">02</span>
+      <h2 data-i18n="ar.a2.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Mares y costas</h2>
+      <p data-i18n="ar.a2.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Manejo integrado de zonas costeras, ordenamiento marino, erosión costera, arrecifes, praderas y manglares. Diseñamos intervenciones que articulan conservación, uso público, pesca artesanal y turismo, con especial atención a la gobernanza de espacios donde conviven autoridades ambientales, comunidades locales y actividad económica.</p>
+      <ul data-i18n-list="ar.a2.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">MIZC</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">erosión costera</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">manglares</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">pesca artesanal</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="biodiversidad" data-screen-label="Biodiversidad" style="background:#F5F8FA;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">03</span>
+      <h2 data-i18n="ar.a3.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Biodiversidad y ecosistemas</h2>
+      <p data-i18n="ar.a3.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Restauración ecológica, conectividad de paisajes, áreas protegidas y soluciones basadas en la naturaleza. Formulamos proyectos de restauración con línea base, criterios de sitio, especies, monitoreo y mantenimiento, y con esquemas de gobernanza que garantizan la permanencia de los resultados en el tiempo.</p>
+      <ul data-i18n-list="ar.a3.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">restauración</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">SbN</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">conectividad</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">áreas protegidas</li>
+      </ul>
+    </div>
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d3" shape="rounded" radius="12" placeholder="Ecosistema representativo — bosque seco, manglar (4:3)"></image-slot></div>
+  </div>
+</section>
+
+<section id="clima" data-screen-label="Cambio climático" style="background:#fff;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d4" shape="rounded" radius="12" placeholder="Territorio expuesto a inundación, sequía o erosión (4:3)"></image-slot></div>
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">04</span>
+      <h2 data-i18n="ar.a4.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Cambio climático y riesgo</h2>
+      <p data-i18n="ar.a4.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Adaptación basada en ecosistemas, análisis de amenaza y vulnerabilidad, gestión del riesgo de desastres y proyectos elegibles ante fondos climáticos. Traducimos escenarios climáticos en decisiones concretas de planificación e inversión a escala municipal, de cuenca y de zona costera.</p>
+      <ul data-i18n-list="ar.a4.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">AbE</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">vulnerabilidad</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">gestión del riesgo</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">fondos climáticos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="territorial" data-screen-label="Desarrollo territorial" style="background:#F5F8FA;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">05</span>
+      <h2 data-i18n="ar.a5.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Desarrollo territorial y bioeconomía</h2>
+      <p data-i18n="ar.a5.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Ordenamiento territorial, planificación del desarrollo y negocios verdes anclados en el uso sostenible de la biodiversidad. Apoyamos a territorios en identificar cadenas de valor viables, articular actores y estructurar inversiones que generen ingreso local sin comprometer la base natural.</p>
+      <ul data-i18n-list="ar.a5.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">POT</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">negocios verdes</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">cadenas de valor</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">inversión pública</li>
+      </ul>
+    </div>
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d5" shape="rounded" radius="12" placeholder="Paisaje productivo o mercado local (4:3)"></image-slot></div>
+  </div>
+</section>
+
+<section id="gobernanza" data-screen-label="Gobernanza" style="background:#fff;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d6" shape="rounded" radius="12" placeholder="Mesa de trabajo institucional (4:3)"></image-slot></div>
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">06</span>
+      <h2 data-i18n="ar.a6.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Gobernanza y fortalecimiento institucional</h2>
+      <p data-i18n="ar.a6.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Diseño de arreglos institucionales, instancias de coordinación, instrumentos de política y capacidades técnicas de las entidades. Trabajamos para que las decisiones ambientales tengan soporte técnico, reglas claras y participación efectiva de los actores del territorio.</p>
+      <ul data-i18n-list="ar.a6.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">arreglos institucionales</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">política pública</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">participación</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">capacidades</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="educacion" data-screen-label="Educación e innovación" style="background:#F5F8FA;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">07</span>
+      <h2 data-i18n="ar.a7.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Educación e innovación</h2>
+      <p data-i18n="ar.a7.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Educación ambiental, formación técnica, gestión del conocimiento e innovación aplicada. Diseñamos procesos formativos vinculados a proyectos reales y sistemas de información que permiten a las organizaciones aprender de su propia experiencia y mejorar sus decisiones.</p>
+      <ul data-i18n-list="ar.a7.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">educación ambiental</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">gestión del conocimiento</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">observatorios</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#fff;border-radius:999px;padding:.3rem .7rem">investigación aplicada</li>
+      </ul>
+    </div>
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d7" shape="rounded" radius="12" placeholder="Taller de formación o trabajo de campo (4:3)"></image-slot></div>
+  </div>
+</section>
+
+<section id="comunitario" data-screen-label="Desarrollo comunitario" style="background:#fff;padding:clamp(3.5rem,8vw,5.5rem) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,3.5rem);align-items:center">
+    <div style="aspect-ratio:4/3"><image-slot id="ar-d8" shape="rounded" radius="12" placeholder="Comunidad costera o rural del Caribe (4:3)"></image-slot></div>
+    <div>
+      <span style="display:block;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#3C8A1A;margin-bottom:.75rem">08</span>
+      <h2 data-i18n="ar.a8.title2" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.125rem);line-height:1.2;margin:0 0 1.25rem;color:#003C5A">Desarrollo comunitario</h2>
+      <p data-i18n="ar.a8.desc" style="font-size:1rem;line-height:1.75;color:#374151;margin:0 0 1.5rem;text-wrap:pretty">Fortalecimiento de organizaciones comunitarias, medios de vida sostenibles y proyectos con enfoque diferencial y de género. Acompañamos a comunidades vulnerables, consejos comunitarios y resguardos en convertir sus prioridades en proyectos formulados con estándares que la financiación exige.</p>
+      <ul data-i18n-list="ar.a8.tags" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem">
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">medios de vida</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">enfoque diferencial</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">organización social</li>
+        <li style="font-size:11px;font-weight:600;color:#00607A;border:1px solid #E5E7EB;background:#F5F8FA;border-radius:999px;padding:.3rem .7rem">género</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="background:#003C5A;padding:clamp(3.5rem,7vw,5rem) 0">
+  <div style="max-width:1000px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem);text-align:center">
+    <h2 data-i18n="ar.cta.title" style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;color:#fff;margin:0 0 2rem;text-wrap:balance">¿Su desafío cruza varias de estas áreas? Así trabajamos mejor.</h2>
+    <a href="./Nexus-Contacto.dc.html#tipo=proyecto" data-i18n="ar.cta.btn" style="display:inline-block;background:#5AB41E;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;padding:1.05rem 2rem;border-radius:4px;transition:background .25s,transform .25s" style-hover="background:#3C8A1A;color:#fff;transform:translateY(-2px)">Conversemos →</a>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:#002840;padding:clamp(3.5rem,7vw,5rem) 0 2rem">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.5rem">
+      <div>
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.25rem">
+          <img src="./assets/nexus-emblem.png" alt="NEXUS GSS" style="height:38px;width:auto;display:block">
+          <span style="font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.06em;font-size:15px;color:#fff">NEXUS GSS</span>
+        </div>
+        <p data-i18n="footer.tagline" style="font-size:.9375rem;line-height:1.7;color:rgba(255,255,255,.7);margin:0 0 1.25rem;max-width:34ch">Transformamos desafíos territoriales en soluciones que pueden hacerse realidad.</p>
+        <a href="https://www.linkedin.com/in/nexus-gss-governance-and-sustainability-solutions-a768623a8" target="_blank" rel="noopener" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;color:#5AB41E;letter-spacing:.04em" style-hover="color:#fff">LinkedIn ↗</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer.nav.title" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 1.25rem">Navegación</h4>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem;font-size:.9375rem">
+          <li><a href="./Nexus-Inicio.dc.html#servicios" data-i18n="nav.services" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Qué hacemos</a></li>
+          <li><a href="./Nexus-Oficina-Estrategica.dc.html" data-i18n="nav.office" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Oficina Estratégica</a></li>
+          <li><a href="./Nexus-Areas.dc.html" data-i18n="nav.areas" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Áreas</a></li>
+          <li><a href="./Nexus-Inicio.dc.html#equipo" data-i18n="nav.team" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Equipo</a></li>
+          <li><a href="./Nexus-Contacto.dc.html" data-i18n="nav.contact" style="color:rgba(255,255,255,.7)" style-hover="color:#5AB41E">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact.title" style="font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 1.25rem">Contacto</h4>
+        <p style="margin:0 0 .75rem;font-size:.9375rem"><a href="mailto:info@nexusgss.co" style="color:#5AB41E" style-hover="color:#fff">info@nexusgss.co</a></p>
+        <p data-i18n="footer.location" style="font-size:.9375rem;color:rgba(255,255,255,.7);margin:0">Caribe colombiano · Colombia</p>
+      </div>
+    </div>
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between">
+      <p style="font-size:.8125rem;color:#9CA3AF;margin:0">© 2026 NEXUS GSS — Governance and Sustainable Solutions.</p>
+      <p data-i18n="footer.rights" style="font-size:.8125rem;color:#9CA3AF;margin:0">Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const EN = {
+  "nav.services":"What we do","nav.office":"Strategic Office","nav.areas":"Areas","nav.team":"Team","nav.contact":"Contact",
+  "bc.home":"Home","bc.areas":"Areas",
+  "ar.h1":"The areas where we work",
+  "ar.lead":"NEXUS operates at the intersection of Colombia and Latin America's main environmental and development challenges.",
+  "ar.a1.title":"Water & river basins","ar.a1.title2":"Water & river basins",
+  "ar.a1.desc":"We work on integrated water resource management at the basin scale: supply and demand, water quality, hydrological regulation, sanitation, riparian and recharge-area restoration, and payment for ecosystem services schemes. We combine hydrological and spatial information with institutional and community arrangements so interventions outlast the project.",
+  "ar.a1.tags":["basin plans","water quality","PES","riparian restoration"],
+  "ar.a2.title":"Seas & coasts","ar.a2.title2":"Seas & coasts",
+  "ar.a2.desc":"Integrated coastal zone management, marine spatial planning, coastal erosion, reefs, seagrasses, and mangroves. We design interventions that align conservation, public use, artisanal fishing, and tourism, with particular attention to governance where authorities, local communities, and economic activity coexist.",
+  "ar.a2.tags":["ICZM","coastal erosion","mangroves","artisanal fishing"],
+  "ar.a3.title":"Biodiversity & ecosystems","ar.a3.title2":"Biodiversity & ecosystems",
+  "ar.a3.desc":"Ecological restoration, landscape connectivity, protected areas, and nature-based solutions. We formulate restoration projects with baselines, site and species criteria, monitoring, and maintenance, plus governance schemes that keep results in place over time.",
+  "ar.a3.tags":["restoration","NbS","connectivity","protected areas"],
+  "ar.a4.title":"Climate change & risk","ar.a4.title2":"Climate change & risk",
+  "ar.a4.desc":"Ecosystem-based adaptation, hazard and vulnerability analysis, disaster risk management, and projects eligible for climate funds. We translate climate scenarios into concrete planning and investment decisions at municipal, basin, and coastal scales.",
+  "ar.a4.tags":["EbA","vulnerability","risk management","climate funds"],
+  "ar.a5.title":"Territorial development & bioeconomy","ar.a5.title2":"Territorial development & bioeconomy",
+  "ar.a5.desc":"Land-use planning, development planning, and green businesses anchored in the sustainable use of biodiversity. We help territories identify viable value chains, align stakeholders, and structure investments that generate local income without eroding the natural base.",
+  "ar.a5.tags":["land-use plans","green business","value chains","public investment"],
+  "ar.a6.title":"Governance & institutional strengthening","ar.a6.title2":"Governance & institutional strengthening",
+  "ar.a6.desc":"Design of institutional arrangements, coordination bodies, policy instruments, and the technical capacities of public entities. We work so environmental decisions have technical support, clear rules, and effective participation of territorial stakeholders.",
+  "ar.a6.tags":["institutional arrangements","public policy","participation","capacities"],
+  "ar.a7.title":"Education & innovation","ar.a7.title2":"Education & innovation",
+  "ar.a7.desc":"Environmental education, technical training, knowledge management, and applied innovation. We design learning processes tied to real projects and information systems that let organizations learn from their own experience and improve their decisions.",
+  "ar.a7.tags":["environmental education","knowledge management","observatories","applied research"],
+  "ar.a8.title":"Community development","ar.a8.title2":"Community development",
+  "ar.a8.desc":"Strengthening community organizations, sustainable livelihoods, and projects with a differential and gender approach. We support vulnerable communities, community councils, and indigenous territories in turning their priorities into projects formulated to the standards funding requires.",
+  "ar.a8.tags":["livelihoods","differential approach","social organization","gender"],
+  "ar.cta.title":"Does your challenge cross several of these areas? That is where we work best.",
+  "ar.cta.btn":"Let's talk →",
+  "footer.tagline":"We transform territorial challenges into solutions that can become reality.",
+  "footer.nav.title":"Navigation","footer.contact.title":"Contact","footer.location":"Colombian Caribbean · Colombia",
+  "footer.rights":"All rights reserved."
+};
+
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onScroll = () => {
+      const nav = document.getElementById('mainNav');
+      if (nav) nav.setAttribute('data-scrolled', window.scrollY > 80 ? '1' : '0');
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    let saved = 'es';
+    try { saved = localStorage.getItem('nexus-lang') || 'es'; } catch (e) {}
+    this.applyLang(saved);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  applyLang(lang) {
+    this.lang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (!el.dataset.esText) el.dataset.esText = el.textContent;
+      const val = lang === 'en' ? EN[key] : el.dataset.esText;
+      if (typeof val === 'string') el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-list]').forEach(ul => {
+      const arr = EN[ul.getAttribute('data-i18n-list')];
+      Array.from(ul.children).forEach((li, i) => {
+        if (!li.dataset.esText) li.dataset.esText = li.textContent;
+        li.textContent = lang === 'en' && arr && arr[i] ? arr[i] : li.dataset.esText;
+      });
+    });
+    const es = document.getElementById('langES'), en = document.getElementById('langEN');
+    if (es && en) {
+      es.style.fontWeight = lang === 'es' ? '700' : '400';
+      es.style.opacity = lang === 'es' ? '1' : '.55';
+      en.style.fontWeight = lang === 'en' ? '700' : '400';
+      en.style.opacity = lang === 'en' ? '1' : '.55';
+    }
+    try { localStorage.setItem('nexus-lang', lang); } catch (e) {}
+  }
+
+  renderVals() {
+    return {
+      toggleLang: () => this.applyLang(this.lang === 'en' ? 'es' : 'en'),
+      toggleMenu: () => {
+        const menu = document.getElementById('navMenu');
+        const burger = document.getElementById('navBurger');
+        if (!menu) return;
+        const open = menu.getAttribute('data-open') === '1' ? '0' : '1';
+        menu.setAttribute('data-open', open);
+        if (burger) burger.setAttribute('aria-expanded', open === '1' ? 'true' : 'false');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

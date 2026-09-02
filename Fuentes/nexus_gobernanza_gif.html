@@ -1,0 +1,272 @@
+
+<style>
+  .gif-wrap {
+    width: 100%;
+    max-width: 680px;
+    aspect-ratio: 16/9;
+    background: #1D2D44;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Century Gothic', 'Calibri', sans-serif;
+  }
+
+  /* Ondas de fondo */
+  .wave {
+    position: absolute;
+    bottom: 0; left: -10%;
+    width: 120%; height: 45%;
+    border-radius: 50% 50% 0 0;
+    opacity: 0.12;
+  }
+  .w1 { background: #4BACC6; animation: waveMove 6s ease-in-out infinite; }
+  .w2 { background: #4BACC6; height: 38%; animation: waveMove 6s ease-in-out infinite reverse 1s; opacity: 0.08; }
+  .w3 { background: #243E5C; height: 30%; animation: waveMove 8s ease-in-out infinite 2s; opacity: 0.2; }
+
+  @keyframes waveMove {
+    0%, 100% { transform: translateX(0) scaleY(1); }
+    50% { transform: translateX(3%) scaleY(1.05); }
+  }
+
+  /* Partículas flotantes */
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: #4BACC6;
+    opacity: 0;
+    animation: floatDot linear infinite;
+  }
+  @keyframes floatDot {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.4; }
+    100% { opacity: 0; transform: translateY(-120px) scale(1); }
+  }
+
+  /* Ciclo principal — nodos */
+  .ciclo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -52%);
+    width: 260px; height: 260px;
+  }
+
+  .nodo {
+    position: absolute;
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    border: 2px solid rgba(75,172,198,0.5);
+    background: #243E5C;
+    animation: nodoPulse 4s ease-in-out infinite;
+  }
+
+  .nodo-icon { font-size: 18px; margin-bottom: 2px; line-height: 1; }
+  .nodo-label { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; }
+
+  /* Posiciones en círculo — 5 nodos */
+  .n1 { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+  .n2 { top: 28%; right: 0; animation-delay: 0.6s; }
+  .n3 { bottom: 8%; right: 12%; animation-delay: 1.2s; }
+  .n4 { bottom: 8%; left: 12%; animation-delay: 1.8s; }
+  .n5 { top: 28%; left: 0; animation-delay: 2.4s; }
+
+  @keyframes nodoPulse {
+    0%, 100% { border-color: rgba(75,172,198,0.3); background: #243E5C; }
+    50% { border-color: rgba(75,172,198,0.9); background: #2d4d6e; }
+  }
+
+  /* Nodo central */
+  .nodo-centro {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: #4BACC6;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    animation: centroBreath 3s ease-in-out infinite;
+  }
+
+  .nodo-centro .ico { font-size: 22px; }
+
+  @keyframes centroBreath {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+  }
+
+  /* Arcos SVG */
+  .arcos {
+    position: absolute;
+    top: 0; left: 0;
+    width: 260px; height: 260px;
+    pointer-events: none;
+  }
+
+  .arco-path {
+    fill: none;
+    stroke: #4BACC6;
+    stroke-width: 1.5;
+    stroke-dasharray: 8 5;
+    opacity: 0.35;
+    animation: arcFlow 3s linear infinite;
+  }
+  .a2 { animation-delay: 0.6s; }
+  .a3 { animation-delay: 1.2s; }
+  .a4 { animation-delay: 1.8s; }
+  .a5 { animation-delay: 2.4s; }
+
+  @keyframes arcFlow {
+    0% { stroke-dashoffset: 0; opacity: 0.2; }
+    50% { opacity: 0.7; }
+    100% { stroke-dashoffset: -40; opacity: 0.2; }
+  }
+
+  /* Texto inferior */
+  .gif-bottom {
+    position: absolute;
+    bottom: 18px; left: 0; right: 0;
+    text-align: center;
+  }
+
+  .gif-tagline {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(75,172,198,0.85);
+    animation: fadeInOut 6s ease-in-out infinite;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Texto superior */
+  .gif-top {
+    position: absolute;
+    top: 20px; left: 0; right: 0;
+    text-align: center;
+  }
+
+  .gif-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+  }
+
+  .gif-sub {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: rgba(75,172,198,0.7);
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+
+  /* Líneas de conexión al centro */
+  .conector {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform-origin: 0 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(75,172,198,0.6), transparent);
+    animation: conectorPulse 4s ease-in-out infinite;
+  }
+  @keyframes conectorPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.7; }
+  }
+
+  .c1 { width: 95px; transform: rotate(-90deg); animation-delay: 0s; }
+  .c2 { width: 90px; transform: rotate(-18deg); animation-delay: 0.6s; }
+  .c3 { width: 92px; transform: rotate(54deg); animation-delay: 1.2s; }
+  .c4 { width: 92px; transform: rotate(126deg); animation-delay: 1.8s; }
+  .c5 { width: 90px; transform: rotate(198deg); animation-delay: 2.4s; }
+
+  /* Anillo exterior */
+  .anillo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(75,172,198,0.15);
+    animation: anilloRot 20s linear infinite;
+  }
+  .anillo2 {
+    width: 310px; height: 310px;
+    border-color: rgba(75,172,198,0.08);
+    animation: anilloRot 30s linear infinite reverse;
+  }
+
+  @keyframes anilloRot {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+</style>
+
+<div class="gif-wrap">
+  <div class="wave w1"></div>
+  <div class="wave w2"></div>
+  <div class="wave w3"></div>
+
+  <div class="anillo"></div>
+  <div class="anillo anillo2"></div>
+
+  <div class="dot" style="width:4px;height:4px;left:20%;bottom:30%;animation-duration:5s;animation-delay:0s;"></div>
+  <div class="dot" style="width:3px;height:3px;left:75%;bottom:25%;animation-duration:7s;animation-delay:1.5s;"></div>
+  <div class="dot" style="width:5px;height:5px;left:45%;bottom:20%;animation-duration:6s;animation-delay:3s;"></div>
+  <div class="dot" style="width:3px;height:3px;left:60%;bottom:40%;animation-duration:8s;animation-delay:0.5s;"></div>
+  <div class="dot" style="width:4px;height:4px;left:30%;bottom:50%;animation-duration:6.5s;animation-delay:2s;"></div>
+
+  <div class="gif-top">
+    <div class="gif-title">NEXUS GSS</div>
+    <div class="gif-sub">Governance &amp; Sustainability Solutions</div>
+  </div>
+
+  <div class="ciclo" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);width:260px;height:260px;">
+    <div class="conector c1"></div>
+    <div class="conector c2"></div>
+    <div class="conector c3"></div>
+    <div class="conector c4"></div>
+    <div class="conector c5"></div>
+
+    <div class="nodo n1">
+      <div class="nodo-icon">🌿</div>
+      <div class="nodo-label">Territorio</div>
+    </div>
+    <div class="nodo n2">
+      <div class="nodo-icon">💧</div>
+      <div class="nodo-label">Ecosistemas</div>
+    </div>
+    <div class="nodo n3">
+      <div class="nodo-icon">🤝</div>
+      <div class="nodo-label">Comunidades</div>
+    </div>
+    <div class="nodo n4">
+      <div class="nodo-icon">🌐</div>
+      <div class="nodo-label">Cooperación</div>
+    </div>
+    <div class="nodo n5">
+      <div class="nodo-icon">📋</div>
+      <div class="nodo-label">Proyectos</div>
+    </div>
+
+    <div class="nodo-centro">
+      <div class="ico">🔗</div>
+    </div>
+  </div>
+
+  <div class="gif-bottom">
+    <div class="gif-tagline">Gobernanza · Sostenibilidad · Territorio</div>
+  </div>
+</div>
